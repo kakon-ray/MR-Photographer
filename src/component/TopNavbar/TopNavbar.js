@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./TopNavbar.css";
 
 const TopNavbar = () => {
@@ -34,6 +34,12 @@ const TopNavbar = () => {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
+              <Button variant="outline-success" className="mx-2 py-1 my-2">
+                Sign up
+              </Button>
+              <Button variant="success" className="mx-2 py-1 my-2">
+                Sign in
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -28,7 +28,7 @@ const Blog = () => {
               <h6>24 February 2021</h6>
               <Card.Title>Card Title</Card.Title>
               <Card.Text>Some quick example text</Card.Text>
-              <Button variant="outline-warning">Go somewhere</Button>
+              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
           </Card>
         </div>
@@ -45,7 +45,7 @@ const Blog = () => {
               <h6>24 February 2021</h6>
               <Card.Title>Card Title</Card.Title>
               <Card.Text>Some quick example text</Card.Text>
-              <Button variant="outline-warning">Go somewhere</Button>
+              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
           </Card>
         </div>
@@ -62,7 +62,7 @@ const Blog = () => {
               <h6>24 February 2021</h6>
               <Card.Title>Card Title</Card.Title>
               <Card.Text>Some quick example text</Card.Text>
-              <Button variant="outline-warning">Go somewhere</Button>
+              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
           </Card>
         </div>

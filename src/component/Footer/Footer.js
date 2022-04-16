@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="container-fluid py-5" id="footer">
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-md-4">
           <h2 style={{ color: "#579581" }}>MR.Photographer</h2>
           <p className="text-secondary">
             <span>Mr.Photographer </span> We're Tilia, a team of photographers &
@@ -32,20 +32,21 @@ const Footer = () => {
           </div>
         </div>
         <FooterList
-          title="INFORMATION"
-          li1="Home"
-          li2="About"
-          li3="Privacy Policy"
-          li4="Frequently Questions"
-          li5="Order Tracking"
-        />
-        <FooterList
           title="Follow"
           li1="Facebook"
           li2="Twitter"
           li3="Instagram"
           li4="Youtube"
           li5="Vimeo"
+        />
+
+        <FooterList
+          title="INFORMATION"
+          li1="Home"
+          li2="About"
+          li3="Privacy Policy"
+          li4="Frequently Questions"
+          li5="Order Tracking"
         />
 
         <div className="col-md-3 footer-subscription ml-0 ">

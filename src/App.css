@@ -6,3 +6,18 @@
 html {
   font-family: "Roboto Condensed", sans-serif;
 }
+
+.btn {
+  border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  -ms-border-radius: 0 !important;
+  -o-border-radius: 0 !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #579581 !important;
+}
+.btn-success {
+  background-color: #579581 !important;
+}
