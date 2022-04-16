@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import img1 from "../../images/about.png";
 const About = () => {
   return (
-    <div className="container">
+    <div className="container my-4">
       <div className="row d-flex align-items-center">
         <div className="col-md-6">
           <h3>April Ryan</h3>

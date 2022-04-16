@@ -14,7 +14,7 @@ const Services = () => {
 
   console.log(service);
   return (
-    <div className="container">
+    <div className="container my-4">
       <h1 className="text-center my-4">Our Services</h1>
       <div className="row g-3">
         {service.map((item) => {
