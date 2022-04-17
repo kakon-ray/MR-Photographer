@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./SignIn.css";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function SignIn() {
   const emailRef = useRef("");
@@ -12,6 +14,9 @@ export default function SignIn() {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [sendPasswordResetEmail, sending, updatePasswordError] =
+    useSendPasswordResetEmail(auth);
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -27,11 +32,23 @@ export default function SignIn() {
     });
   };
 
+  const handleResetPassword = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    await toast.success("Sent Email");
+  };
+
+  let passwordRestError;
+  if (error) {
+    passwordRestError = <p className="text-danger">{error.message}</p>;
+  }
   return (
-    <div className="mt-4 container">
+    <div className="container mt-2 pb-5 ">
+      <ToastContainer position="top-center" />
+      {passwordRestError}
       <div className="form-responsive mx-auto">
         <div className="mx-auto rounded-0">
-          <div className="p-5">
+          <div className="p-3">
             <Form onSubmit={signIn}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
@@ -55,6 +72,16 @@ export default function SignIn() {
               </Button>
             </Form>
           </div>
+          <p className="mt-3 text-center text-decoration-none">
+            Forget Password?{" "}
+            <span
+              style={{ cursor: "pointer" }}
+              className="text-danger"
+              onClick={handleResetPassword}
+            >
+              Reset Password
+            </span>
+          </p>
           <p className="text-center">
             Don't have account?{" "}
             <Link to="/signup" style={{ textDecoration: "none" }}>

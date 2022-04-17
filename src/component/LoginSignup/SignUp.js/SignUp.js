@@ -64,11 +64,11 @@ export default function SignUp() {
   let from = location.state?.from?.pathname || "/";
 
   return (
-    <div className="mt-4 container">
+    <div className="mt-2 container pb-5">
       <ToastContainer position="top-center" reverseOrder={false} />
       <div className="form-responsive mx-auto">
         <div className="mx-auto rounded-0">
-          <div className="p-5">
+          <div className="p-3">
             <Form onSubmit={singUp}>
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Control
