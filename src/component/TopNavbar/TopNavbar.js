@@ -55,35 +55,43 @@ const TopNavbar = () => {
                 Blog
               </Link>
             </Nav>
-            <Nav>
-              <NavDropdown
-                title={
-                  <img
-                    src={user?.photoURL}
-                    style={{
-                      width: "35px",
-                      height: "35px",
-                      borderRadius: "50px",
-                      border: "1px solid gray",
-                    }}
-                    alt=""
-                  />
-                }
-                id="basic-nav-dropdown"
-              >
-                <div className="p-2">
-                  <h6>{user?.displayName}</h6>
-                  <h6>{user?.email}</h6>
-                  <Button
-                    variant="success"
-                    className="py-1 my-2"
-                    onClick={() => signOut(auth)}
-                  >
-                    Sign out
-                  </Button>
-                </div>
-              </NavDropdown>
-            </Nav>
+            {user?.email ? (
+              <Nav>
+                <NavDropdown
+                  title={
+                    <img
+                      src={
+                        user?.photoURL
+                          ? user?.photoURL
+                          : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-photo-183042379.jpg"
+                      }
+                      style={{
+                        width: "35px",
+                        height: "35px",
+                        borderRadius: "50px",
+                        border: "1px solid gray",
+                      }}
+                      alt=""
+                    />
+                  }
+                  id="basic-nav-dropdown"
+                >
+                  <div className="p-2">
+                    <h6>{user?.displayName}</h6>
+                    <h6>{user?.email}</h6>
+                    <Button
+                      variant="success"
+                      className="py-1 my-2"
+                      onClick={() => signOut(auth)}
+                    >
+                      Sign out
+                    </Button>
+                  </div>
+                </NavDropdown>
+              </Nav>
+            ) : (
+              ""
+            )}
             <Nav>
               <Button
                 variant="outline-success"
