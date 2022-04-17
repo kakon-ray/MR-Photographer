@@ -1,11 +1,15 @@
 import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
-
 import "./SignIn.css";
 
 export default function SignIn() {
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
+
   return (
     <div className="mt-4">
       <div className="form-responsive mx-auto">

@@ -12,6 +12,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import CheckOut from "./component/CheckOut/CheckOut";
 import SignIn from "./component/LoginSignup/SignIn/SignIn";
 import SignUp from "./component/LoginSignup/SignUp.js/SignUp";
+import RequireAuth from "./component/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -22,7 +23,14 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
-        <Route path="/checkout" element={<CheckOut />} />
+        <Route
+          path="/checkout"
+          element={
+            <RequireAuth>
+              <CheckOut />
+            </RequireAuth>
+          }
+        />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>

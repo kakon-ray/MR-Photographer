@@ -2,9 +2,14 @@ import React from "react";
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./TopNavbar.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const TopNavbar = () => {
   const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -51,19 +56,6 @@ const TopNavbar = () => {
               </Link>
             </Nav>
             <Nav>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
               <Button
                 variant="outline-success"
                 className="mx-2 py-1 my-2"
@@ -71,13 +63,23 @@ const TopNavbar = () => {
               >
                 Sign up
               </Button>
-              <Button
-                variant="success"
-                className="mx-2 py-1 my-2"
-                onClick={() => navigate("/signin")}
-              >
-                Sign in
-              </Button>
+              {!user?.email ? (
+                <Button
+                  variant="success"
+                  className="mx-2 py-1 my-2"
+                  onClick={() => navigate("/signin")}
+                >
+                  Sign in
+                </Button>
+              ) : (
+                <Button
+                  variant="success"
+                  className="mx-2 py-1 my-2"
+                  onClick={() => signOut(auth)}
+                >
+                  Sign out
+                </Button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

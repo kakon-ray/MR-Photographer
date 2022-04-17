@@ -5,13 +5,34 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 
+import auth from "../../../firebase.init";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SocialLogin = () => {
   let navigate = useNavigate();
   let location = useLocation();
 
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [user1, loading1, error1] = useAuthState(auth);
+
+  let from = location.state?.from?.pathname || "/";
+
+  let errorelement;
+
+  if (error) {
+    errorelement = <p className="text-center text-danger">{error.message}</p>;
+  }
+
+  if (user1?.email) {
+    navigate(from, { replace: true });
+  }
+
   return (
     <div className="mt-3">
+      <ToastContainer position="top-center" reverseOrder={false} />
+      {errorelement}
       <div className="d-flex align-items-center justify-content-center">
         <div
           style={{ height: "1px", backgroundColor: "lightgray" }}
@@ -26,6 +47,7 @@ const SocialLogin = () => {
 
       <div className="icon-auth text-center d-flex flex-column justify-content-center">
         <button
+          onClick={() => signInWithGoogle()}
           style={{
             height: "40px",
             borderRadius: "25px",
@@ -38,6 +60,9 @@ const SocialLogin = () => {
           <span className="ms-2">Sign in Google</span>
         </button>
         <button
+          onClick={() => {
+            toast.success("Login Successful");
+          }}
           style={{
             height: "40px",
             borderRadius: "25px",
