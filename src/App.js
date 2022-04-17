@@ -9,6 +9,7 @@ import About from "./component/About/About";
 import Footer from "./component/Footer/Footer";
 import Services from "./component/Services/Services";
 import { Routes, Route, Link } from "react-router-dom";
+import CheckOut from "./component/CheckOut/CheckOut";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
+        <Route path="/checkout" element={<CheckOut />} />
       </Routes>
       <Footer />
     </div>

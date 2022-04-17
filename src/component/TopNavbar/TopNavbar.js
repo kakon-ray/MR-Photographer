@@ -8,12 +8,15 @@ const TopNavbar = () => {
     <div>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand
-            href="#home"
+          <Link
+            to="/"
+            className="navbar-brand"
             style={{ fontWeight: "700", color: "#579581" }}
           >
+            {" "}
             MR.PHOTOGRAPHER
-          </Navbar.Brand>
+          </Link>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">

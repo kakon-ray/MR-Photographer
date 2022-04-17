@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import useServices from "../../Hook/useServices";
 
 const Services = () => {
-  const [service, setService] = useState([]);
-
-  useEffect(() => {
-    fetch("services.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setService(data);
-      });
-  }, []);
+  const navigate = useNavigate();
+  // use custome hook and get services data
+  const [service, setService] = useServices();
 
   console.log(service);
   return (
@@ -31,7 +27,11 @@ const Services = () => {
                   <h4>{item.name}</h4>
                   <Card.Text>{item.description}</Card.Text>
                   <h4>{item.price}</h4>
-                  <Button variant="success" className="d-block mx-auto">
+                  <Button
+                    variant="success"
+                    className="d-block mx-auto"
+                    onClick={() => navigate("/checkout")}
+                  >
                     Go To Checkout
                   </Button>
                 </Card.Body>
