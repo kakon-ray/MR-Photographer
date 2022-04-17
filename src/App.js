@@ -10,6 +10,8 @@ import Footer from "./component/Footer/Footer";
 import Services from "./component/Services/Services";
 import { Routes, Route, Link } from "react-router-dom";
 import CheckOut from "./component/CheckOut/CheckOut";
+import SignIn from "./component/LoginSignup/SignIn/SignIn";
+import SignUp from "./component/LoginSignup/SignUp.js/SignUp";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </div>

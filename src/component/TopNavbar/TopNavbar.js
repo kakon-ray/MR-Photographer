@@ -1,9 +1,10 @@
 import React from "react";
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./TopNavbar.css";
 
 const TopNavbar = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -63,10 +64,18 @@ const TopNavbar = () => {
                   Separated link
                 </NavDropdown.Item>
               </NavDropdown>
-              <Button variant="outline-success" className="mx-2 py-1 my-2">
+              <Button
+                variant="outline-success"
+                className="mx-2 py-1 my-2"
+                onClick={() => navigate("/signup")}
+              >
                 Sign up
               </Button>
-              <Button variant="success" className="mx-2 py-1 my-2">
+              <Button
+                variant="success"
+                className="mx-2 py-1 my-2"
+                onClick={() => navigate("/signin")}
+              >
                 Sign in
               </Button>
             </Nav>
