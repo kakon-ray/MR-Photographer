@@ -30,7 +30,7 @@ const CheckOut = () => {
       <div>
         <Button
           variant="success"
-          className="d-block ms-auto"
+          className="d-block ms-auto mb-5"
           onClick={() => toast.success("Thank You for Booking")}
         >
           Checkout Now

@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 import CustomLInk from "../CustomLink/CustomLInk";
-
+import img from "../../images/userphoto.webp";
 const TopNavbar = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
@@ -42,11 +42,7 @@ const TopNavbar = () => {
                 <NavDropdown
                   title={
                     <img
-                      src={
-                        user?.photoURL
-                          ? user?.photoURL
-                          : "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-photo-183042379.jpg"
-                      }
+                      src={user?.photoURL ? user?.photoURL : img}
                       style={{
                         width: "35px",
                         height: "35px",
