@@ -14,6 +14,7 @@ import SignIn from "./component/LoginSignup/SignIn/SignIn";
 import SignUp from "./component/LoginSignup/SignUp.js/SignUp";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
 import "react-toastify/dist/ReactToastify.css";
+import ErrorPage from "./component/404Page/ErrorPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
     </div>
