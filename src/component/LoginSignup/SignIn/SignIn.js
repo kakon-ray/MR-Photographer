@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Card, Form } from "react-bootstrap";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import "./SignIn.css";
 
 export default function SignIn() {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
   let navigate = useNavigate();
   let location = useLocation();
-
   let from = location.state?.from?.pathname || "/";
+
+  const signIn = (e) => {
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email, password).then((res) => {
+      setTimeout(navigate(from, { replace: true }), 2000);
+    });
+  };
 
   return (
     <div className="mt-4">
       <div className="form-responsive mx-auto">
         <div className="mx-auto rounded-0">
           <div className="p-5">
-            <Form>
+            <Form onSubmit={signIn}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control
                   type="email"
                   placeholder="Enter Email"
                   className="rounded-0"
+                  ref={emailRef}
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -28,6 +46,7 @@ export default function SignIn() {
                   type="password"
                   placeholder="Enter Password"
                   className="rounded-0"
+                  ref={passwordRef}
                 />
               </Form.Group>
 

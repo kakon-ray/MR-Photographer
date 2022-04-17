@@ -4,7 +4,7 @@ import { Spinner } from "react-bootstrap";
 const Loding = () => {
   return (
     <div className="text-center mt-5">
-      <Spinner animation="border" variant="info" className="text-center" />
+      <Spinner animation="border" variant="success" className="text-center" />
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { signOut } from "firebase/auth";
 const TopNavbar = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
-
+  console.log(user);
   return (
     <div>
       <Navbar bg="light" expand="lg">

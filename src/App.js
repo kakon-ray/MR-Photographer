@@ -13,6 +13,7 @@ import CheckOut from "./component/CheckOut/CheckOut";
 import SignIn from "./component/LoginSignup/SignIn/SignIn";
 import SignUp from "./component/LoginSignup/SignUp.js/SignUp";
 import RequireAuth from "./component/RequireAuth/RequireAuth";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

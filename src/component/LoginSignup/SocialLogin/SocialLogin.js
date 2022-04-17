@@ -9,7 +9,7 @@ import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 
 import auth from "../../../firebase.init";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 const SocialLogin = () => {
   let navigate = useNavigate();
   let location = useLocation();
