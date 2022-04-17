@@ -35,7 +35,10 @@ export default function SignIn() {
           <p className="text-center">
             Don't have account?{" "}
             <Link to="/signup" style={{ textDecoration: "none" }}>
-              <span className="text-info " style={{ cursor: "pointer" }}>
+              <span
+                className="text-success "
+                style={{ cursor: "pointer", fontWeight: "bold" }}
+              >
                 Create an account
               </span>
             </Link>
