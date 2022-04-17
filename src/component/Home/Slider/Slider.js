@@ -16,8 +16,8 @@ const Slider = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>ooking for a phLotograher</h3>
-            <p>
+            <h3>Looking for a phLotograher</h3>
+            <p className="w-50 mx-auto">
               We love photography and travel for meeting new beautiful people
               all over the world.
             </p>
@@ -33,7 +33,7 @@ const Slider = () => {
 
           <Carousel.Caption>
             <h3>Looking for a Videograher</h3>
-            <p>
+            <p className="w-50 mx-auto">
               Propriae voluptaria dissentias nam ei, posse diceret inciderint
               cum ut, gubergren sadipscing ei vim. Ancillae torquatos in nec,
               impetus nostrum ea eos.
@@ -50,7 +50,7 @@ const Slider = () => {
 
           <Carousel.Caption>
             <h3>I am Photographer</h3>
-            <p>
+            <p className="w-50 mx-auto">
               Propriae voluptaria dissentias nam ei, posse diceret inciderint
               cum ut, gubergren sadipscing ei vim. Ancillae torquatos in nec,
               impetus nostrum ea eos.
