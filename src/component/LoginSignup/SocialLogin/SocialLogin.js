@@ -5,7 +5,11 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 import { useLocation, useNavigate } from "react-router-dom";
-import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithFacebook,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 
 import auth from "../../../firebase.init";
 import { toast, ToastContainer } from "react-toastify";
@@ -16,6 +20,8 @@ const SocialLogin = () => {
 
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [user1, loading1, error1] = useAuthState(auth);
+  const [signInWithFacebook, fbUser, fbLoading, errorFb] =
+    useSignInWithFacebook(auth);
 
   let from = location.state?.from?.pathname || "/";
 
@@ -25,7 +31,7 @@ const SocialLogin = () => {
     errorelement = <p className="text-center text-danger">{error.message}</p>;
   }
 
-  if (user1?.email) {
+  if (user?.email || fbUser?.email) {
     navigate(from, { replace: true });
   }
 
@@ -61,7 +67,7 @@ const SocialLogin = () => {
         </button>
         <button
           onClick={() => {
-            toast.success("Login Successful");
+            signInWithFacebook();
           }}
           style={{
             height: "40px",
