@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 const Blog = () => {
   return (
     <div
-      className="container-fluid py-3 my-3"
+      className="container py-3 my-3"
       style={{
         fontFamily: '"Poppins", sans-serif',
       }}

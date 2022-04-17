@@ -28,7 +28,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 container">
       <div className="form-responsive mx-auto">
         <div className="mx-auto rounded-0">
           <div className="p-5">

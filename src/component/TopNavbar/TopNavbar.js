@@ -5,55 +5,37 @@ import "./TopNavbar.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import CustomLInk from "../CustomLink/CustomLInk";
 
 const TopNavbar = () => {
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   console.log(user);
   return (
-    <div>
-      <Navbar bg="light" expand="lg">
+    <>
+      <Navbar bg="light" expand="lg" className="sticky-top">
         <Container>
-          <Link
-            to="/"
-            className="navbar-brand"
-            style={{ fontWeight: "700", color: "#579581" }}
-          >
+          <Link to="/" className="navbar-brand" style={{ fontWeight: "700" }}>
             {" "}
-            MR.PHOTOGRAPHER
+            <span style={{ color: "#f79837" }}> MR.</span>
+            <span style={{ color: "#579581" }}>PHOTOGRAPHER</span>
           </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Link
-                to="/"
-                className="nav-link"
-                style={{ textDecoration: "none" }}
-              >
+              <CustomLInk to="/" className="nav-link">
                 Home
-              </Link>
-              <Link
-                to="/services"
-                className="nav-link"
-                style={{ textDecoration: "none" }}
-              >
+              </CustomLInk>
+              <CustomLInk to="/services" className="nav-link">
                 Services
-              </Link>
-              <Link
-                to="/about"
-                className="nav-link"
-                style={{ textDecoration: "none" }}
-              >
+              </CustomLInk>
+              <CustomLInk to="/about" className="nav-link">
                 About
-              </Link>
-              <Link
-                to="/blog"
-                className="nav-link"
-                style={{ textDecoration: "none" }}
-              >
+              </CustomLInk>
+              <CustomLInk to="/blog" className="nav-link">
                 Blog
-              </Link>
+              </CustomLInk>
             </Nav>
             {user?.email ? (
               <Nav>
@@ -93,21 +75,23 @@ const TopNavbar = () => {
               ""
             )}
             <Nav>
-              <Button
-                variant="outline-success"
-                className="mx-2 py-1 my-2"
-                onClick={() => navigate("/signup")}
-              >
-                Sign up
-              </Button>
               {!user?.email ? (
-                <Button
-                  variant="success"
-                  className="mx-2 py-1 my-2"
-                  onClick={() => navigate("/signin")}
-                >
-                  Sign in
-                </Button>
+                <>
+                  <Button
+                    variant="outline-success"
+                    className="mx-2 py-1 my-2"
+                    onClick={() => navigate("/signup")}
+                  >
+                    Sign up
+                  </Button>
+                  <Button
+                    variant="success"
+                    className="mx-2 py-1 my-2"
+                    onClick={() => navigate("/signin")}
+                  >
+                    Sign in
+                  </Button>
+                </>
               ) : (
                 <Button
                   variant="success"
@@ -121,7 +105,7 @@ const TopNavbar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
+    </>
   );
 };
 

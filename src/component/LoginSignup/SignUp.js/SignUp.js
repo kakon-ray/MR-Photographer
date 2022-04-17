@@ -64,7 +64,7 @@ export default function SignUp() {
   let from = location.state?.from?.pathname || "/";
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 container">
       <ToastContainer position="top-center" reverseOrder={false} />
       <div className="form-responsive mx-auto">
         <div className="mx-auto rounded-0">

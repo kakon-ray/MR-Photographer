@@ -2,3 +2,8 @@
   margin: 0 15px;
   font-weight: 700;
 }
+
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+  position: absolute;
+  top: 111%;
+}

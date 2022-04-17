@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="container-fluid py-5" id="footer">
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <h2 style={{ color: "#579581" }}>MR.Photographer</h2>
           <p className="text-secondary">
             <span>Mr.Photographer </span> We're Tilia, a team of photographers &
@@ -18,27 +18,19 @@ const Footer = () => {
           </p>
           <div className="d-flex gap-4 flex-wrap footer-icon mb-sm-5">
             <div>
-              <AiFillYoutube />
+              <AiFillYoutube style={{ fontSize: "40px", color: "#579581" }} />
             </div>
             <div>
-              <AiFillYoutube />
+              <AiFillYoutube style={{ fontSize: "40px", color: "#579581" }} />
             </div>
             <div>
-              <AiFillYoutube />
+              <AiFillYoutube style={{ fontSize: "40px", color: "#579581" }} />
             </div>
             <div>
-              <AiFillYoutube />
+              <AiFillYoutube style={{ fontSize: "40px", color: "#579581" }} />
             </div>
           </div>
         </div>
-        <FooterList
-          title="Follow"
-          li1="Facebook"
-          li2="Twitter"
-          li3="Instagram"
-          li4="Youtube"
-          li5="Vimeo"
-        />
 
         <FooterList
           title="INFORMATION"
@@ -48,7 +40,14 @@ const Footer = () => {
           li4="Frequently Questions"
           li5="Order Tracking"
         />
-
+        <FooterList
+          title="Follow"
+          li1="Follow Me Facebook"
+          li2="Follow Me Twitter"
+          li3="Follow Me Instagram"
+          li4="Follow Me Youtube"
+          li5="Follow Me Vimeo"
+        />
         <div className="col-md-3 footer-subscription ml-0 ">
           <h1 className="ml-0" style={{ color: "#579581" }}>
             NEWSLETTER
