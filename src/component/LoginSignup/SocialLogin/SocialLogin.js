@@ -28,11 +28,13 @@ const SocialLogin = () => {
   let errorelement;
 
   if (error) {
-    errorelement = <p className="text-center text-danger">{error.message}</p>;
+    errorelement = <p className="text-center text-danger">{error?.message}</p>;
   }
 
-  if (user?.email || fbUser?.email) {
+  if (user1) {
     navigate(from, { replace: true });
+  } else if (error1) {
+    errorelement = <p className="text-center text-danger">{error?.message}</p>;
   }
 
   return (
@@ -53,7 +55,15 @@ const SocialLogin = () => {
 
       <div className="icon-auth text-center d-flex flex-column justify-content-center">
         <button
-          onClick={() => signInWithGoogle()}
+          onClick={() =>
+            signInWithGoogle()
+              .then((res) => {})
+              .then((error) => {
+                errorelement = (
+                  <p className="text-center text-danger">{error?.message}</p>
+                );
+              })
+          }
           style={{
             height: "40px",
             borderRadius: "25px",
@@ -67,7 +77,9 @@ const SocialLogin = () => {
         </button>
         <button
           onClick={() => {
-            signInWithFacebook();
+            signInWithFacebook()
+              .then((res) => {})
+              .then((error) => {});
           }}
           style={{
             height: "40px",
