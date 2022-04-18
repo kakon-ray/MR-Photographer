@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
@@ -17,6 +20,7 @@ export default function SignIn() {
 
   const [sendPasswordResetEmail, sending, updatePasswordError] =
     useSendPasswordResetEmail(auth);
+  const [user1, loading1, error1] = useAuthState(auth);
 
   let navigate = useNavigate();
   let location = useLocation();
@@ -27,9 +31,7 @@ export default function SignIn() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    signInWithEmailAndPassword(email, password).then((res) => {
-      setTimeout(navigate(from, { replace: true }), 2000);
-    });
+    signInWithEmailAndPassword(email, password).then((res) => {});
   };
 
   const handleResetPassword = async () => {
@@ -40,7 +42,17 @@ export default function SignIn() {
 
   let passwordRestError;
   if (error) {
-    passwordRestError = <p className="text-danger">{error.message}</p>;
+    passwordRestError = (
+      <p className="text-danger text-center">
+        Login Faild! provide right email and password
+      </p>
+    );
+  }
+
+  if (user1) {
+    navigate(from, { replace: true });
+  } else if (error1) {
+    toast.error("Login Faild");
   }
   return (
     <div className="container mt-2 pb-5 ">

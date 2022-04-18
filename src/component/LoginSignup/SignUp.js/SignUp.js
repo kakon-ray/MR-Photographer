@@ -3,6 +3,7 @@ import { Button, Card, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {
+  useAuthState,
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
@@ -17,11 +18,14 @@ export default function SignUp() {
 
   let navigate = useNavigate();
   let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [updateProfile, updating, error1] = useUpdateProfile(auth);
+
+  const [user2, loading2, error2] = useAuthState(auth);
 
   const singUp = async (e) => {
     e.preventDefault();
@@ -47,9 +51,7 @@ export default function SignUp() {
     }
 
     await createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        navigate(from, { replace: true });
-      })
+      .then((res) => {})
       .catch((error) => {
         toast.error(error.message);
       });
@@ -58,15 +60,26 @@ export default function SignUp() {
     nameRef.current.value = "";
     emailRef.current.value = "";
     passwordRef.current.value = "";
-    conformPassword.current.value = "";
+    ConformPasswordRef.current.value = "";
   };
 
-  let from = location.state?.from?.pathname || "/";
-
+  let passwordRestError;
+  if (user2) {
+    navigate(from, { replace: true });
+  } else if (error) {
+    passwordRestError = (
+      <p className="text-danger text-center">
+        Registation Faild! provide right email and password
+      </p>
+    );
+  } else {
+    passwordRestError = "";
+  }
   return (
     <div className="mt-2 container pb-5">
       <ToastContainer position="top-center" reverseOrder={false} />
       <div className="form-responsive mx-auto">
+        {passwordRestError}
         <div className="mx-auto rounded-0">
           <div className="p-3">
             <Form onSubmit={singUp}>
