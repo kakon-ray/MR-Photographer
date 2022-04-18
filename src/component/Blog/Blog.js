@@ -1,10 +1,12 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import img from "../../images/firebase.png";
+import "./Blog.css";
+
 const Blog = () => {
   return (
     <div
-      className="container py-3 my-3"
+      className="container py-3 my-3 blog"
       style={{
         fontFamily: '"Poppins", sans-serif',
       }}
@@ -30,8 +32,8 @@ const Blog = () => {
                 করা হয় তাকে Authorization বলে ।যেমন গুগল বা ফেসবুক দিয়ে লগিন
                 করা।{" "}
               </Card.Text>
-              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
+            <Button variant="success">Go somewhere</Button>
           </Card>
         </div>
         <div className="col-md-4">
@@ -48,8 +50,8 @@ const Blog = () => {
                 জন্য ফায়ারবেস ব্যাবহার করা হয়। ফায়ারবেস এর মত কয়েকটি সাইট ঃ
                 Parse, Kuzzle এবং Backendless
               </Card.Text>
-              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
+            <Button variant="success">Go somewhere</Button>
           </Card>
         </div>
         <div className="col-md-4">
@@ -64,8 +66,8 @@ const Blog = () => {
               <Card.Text>
                 Authentication ছাড়া ফায়ারবেস দিয়ে আর হোস্টিং এর কাজ করা যায়।{" "}
               </Card.Text>
-              <Button variant="outline-success">Go somewhere</Button>
             </Card.Body>
+            <Button variant="success">Go somewhere</Button>
           </Card>
         </div>
       </div>
