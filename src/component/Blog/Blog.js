@@ -6,6 +6,7 @@ import "./Blog.css";
 const Blog = () => {
   return (
     <div
+      id="blog"
       className="container py-3 my-3 blog"
       style={{
         fontFamily: '"Poppins", sans-serif',
