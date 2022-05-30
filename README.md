@@ -1,7 +1,5 @@
 # MR.PHOTOGRAPHER
 
-## [Live Link](https://mrphotographer-4f212.web.app/).
-
 # Technology has been used
 
 > - React Functional Component
